@@ -1,0 +1,38 @@
+{
+    "name": "rnr1721/le7-cookies",
+    "description": "Wrapper for $_SESSION and cookies for le7 PHP MVC framework or any PHP project",
+    "keywords": ["le7", "le7-framework", "framework", "cookie", "session", "component"],
+    "authors": [
+        {
+            "name": "Eugeny G",
+            "email": "rnr1721@gmail.com",
+            "homepage": "https://xhamster.biz.ua",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "psr/simple-cache": "^3.0"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^5.7",
+        "phpunit/phpunit": "^10.0",
+        "rnr1721/le7-cache": "^1.0"
+    },
+    "scripts": {
+        "test": [
+            "@phpunit",
+            "@psalm"
+        ],
+        "phpunit": "phpunit",
+        "psalm": "psalm"
+    }
+}
