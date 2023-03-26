@@ -20,7 +20,7 @@ $_SESSION and $_COOKIES:
 ## Installation
 
 ```shell
-composer require rnr1721/le7-cookies
+composer require rnr1721/le7-cookie-wrapper
 ```
 
 ## Testing
