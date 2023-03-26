@@ -1,5 +1,5 @@
 {
-    "name": "rnr1721/le7-cookies",
+    "name": "rnr1721/le7-cookie-wrapper",
     "description": "Wrapper for $_SESSION and cookies for le7 PHP MVC framework or any PHP project",
     "keywords": ["le7", "le7-framework", "framework", "cookie", "session", "component"],
     "authors": [
