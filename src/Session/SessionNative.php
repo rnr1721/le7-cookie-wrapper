@@ -9,16 +9,21 @@ use function session_cache_expire,
              session_cache_limiter,
              session_start,
              session_destroy,
-             session_unset;
+             session_unset,
+             session_set_cookie_params,
+             ini_set;
 
 class SessionNative implements Session
 {
 
+    private ?string $path = null;
+
     public function __construct(
             bool $autostart = false,
             string|int|null $cacheExpire = null,
-            ?string $cacheLimiter = null
-            )
+            ?string $cacheLimiter = null,
+            ?string $path = null
+    )
     {
 
         if ($cacheExpire !== null) {
@@ -34,6 +39,7 @@ class SessionNative implements Session
                 $this->start();
             }
         }
+        $this->path = $path;
     }
 
     public function clear(): void
@@ -102,6 +108,30 @@ class SessionNative implements Session
             return session_start();
         }
         return false;
+    }
+
+    public function applyParams(array $params = []): void
+    {
+        // Set session cookie params
+        $allowed = [
+            'lifetime',
+            'path',
+            'domain',
+            'secure',
+            'httponly',
+            'samesite'
+        ];
+        $insertParams = [];
+        foreach ($params as $paramKey => $paramValue) {
+            if (in_array($paramKey, $allowed)) {
+                $insertParams[$paramKey] = $paramValue;
+            }
+        }
+        session_set_cookie_params($insertParams);
+        // Set session store path
+        if ($this->path) {
+            ini_set('session.save_path', $this->path);
+        }
     }
 
 }

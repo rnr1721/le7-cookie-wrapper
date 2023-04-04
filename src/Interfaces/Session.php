@@ -60,4 +60,17 @@ interface Session
      * @return bool
      */
     public function destroy(): bool;
+
+    /**
+     * Set params as key=>value array:
+     * - lifetime
+     * - path
+     * - domain
+     * - secure
+     * - httponly
+     * - samesite
+     * @param array $params
+     * @return void
+     */
+    public function applyParams(array $params = []): void;
 }

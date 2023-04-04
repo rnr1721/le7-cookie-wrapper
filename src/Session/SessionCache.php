@@ -101,4 +101,9 @@ class SessionCache implements Session
         return false;
     }
 
+    public function applyParams(array $params = []): void
+    {
+        // Do nothing
+    }
+
 }
