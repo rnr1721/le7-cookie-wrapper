@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Core\Cookies;
 
-use Core\Interfaces\Cookie;
-use Core\Interfaces\CookieConfig;
+use Core\Interfaces\CookieInterface;
+use Core\Interfaces\CookieConfigInterface;
 use Psr\SimpleCache\CacheInterface;
 use \Exception;
 
-class CookiesCache implements Cookie
+class CookiesCache implements CookieInterface
 {
 
     use CookieConfigTrait;
@@ -18,7 +18,11 @@ class CookiesCache implements Cookie
     private CacheInterface $cache;
     private string $browserId;
 
-    public function __construct(CookieConfig $cookieConfig, CacheInterface $cache, string $browserId)
+    public function __construct(
+            CookieConfigInterface $cookieConfig,
+            CacheInterface $cache,
+            string $browserId
+    )
     {
         $this->loadConfig($cookieConfig);
         $this->cache = $cache;

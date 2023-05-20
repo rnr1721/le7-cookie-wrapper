@@ -14,8 +14,8 @@ Wrapper for session and cookies for le7 PHP MVC framework or any PHP project
 There are set of interfaces and adapters for drive variables for
 $_SESSION and $_COOKIES:
 
-- Core\Interfaces\Cookie interface - for cookie management
-- Core\Interfacrs\Session interface - for session management
+- Core\Interfaces\CookieInterface interface - for cookie management
+- Core\Interfacrs\SessionInterface interface - for session management
 
 ## Installation
 
@@ -35,8 +35,8 @@ composer test
 - Core\Cookies\CookiesArray - data stored in array, not persistent (for testing)
 - Core\Cookies\Cache - data stored in PSR cache (for testing)
 
-You can write own implementation of CORE\Interfaces\Cookie
-All of these adapters need config, implementation of Core\Interfaces\CookieConfig
+You can write own implementation of CORE\Interfaces\CookieInterface
+All of these adapters need config, implementation of Core\Interfaces\CookieConfigInterface
 
 - Core\Cookies\CookieConfigDefault
 
@@ -58,13 +58,13 @@ use Core\Cookies\CookiesNative;
         'sameSite' => 'Lax',
     ];
 
-    // Implementation of Core\Interfaces\CookieConfig
+    // Implementation of Core\Interfaces\CookieConfigInterface
     $config = new CookiesConfigDefault($newConfig);
 
     // Second case to add params
     // $config->setParams($newConfig);
 
-    // Implementation of Core\Interfaces\Cookie
+    // Implementation of Core\Interfaces\CookieInterface
     $cookies = new CookiesNative($config);
 
     // Before operations with cookies you can set more concrete params
@@ -85,7 +85,7 @@ use Core\Cookies\CookiesNative;
 ### Session adapters
 
 Also, you can manage your session variables. It implementation of
-Core\Interfaces\Session
+Core\Interfaces\SessionInterface
 
 - Core\Session\SessionNative // Native PHP session management
 - Core\Session\SessionArray // Store in array, not persistent, for testing

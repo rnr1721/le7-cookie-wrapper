@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Core\Cookies;
 
-use Core\Interfaces\CookieConfig;
+use Core\Interfaces\CookieConfigInterface;
 
-class CookieConfigDefault implements CookieConfig
+class CookieConfigDefault implements CookieConfigInterface
 {
 
     use CookieConfigTrait;

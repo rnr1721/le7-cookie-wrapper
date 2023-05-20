@@ -4,18 +4,23 @@ declare(strict_types=1);
 
 namespace Core\Session;
 
-use Core\Interfaces\Session;
+use Core\Interfaces\SessionInterface;
 use Psr\SimpleCache\CacheInterface;
 use function array_key_exists;
 
-class SessionCache implements Session
+class SessionCache implements SessionInterface
 {
 
     private ?int $ttl = null;
     private CacheInterface $cache;
     private string $sessionId;
 
-    public function __construct(string $sessionId, CacheInterface $cache, int|null $cacheTtl = null, bool $autostart = false)
+    public function __construct(
+            string $sessionId,
+            CacheInterface $cache,
+            int|null $cacheTtl = null,
+            bool $autostart = false
+    )
     {
         $this->ttl = $cacheTtl;
         $this->sessionId = $sessionId;

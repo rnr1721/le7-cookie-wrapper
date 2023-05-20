@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Core\Session;
 
-use Core\Interfaces\Session;
+use Core\Interfaces\SessionInterface;
 use function session_cache_expire,
              session_cache_limiter,
              session_start,
@@ -13,7 +13,7 @@ use function session_cache_expire,
              session_set_cookie_params,
              ini_set;
 
-class SessionNative implements Session
+class SessionNative implements SessionInterface
 {
 
     private ?string $path = null;

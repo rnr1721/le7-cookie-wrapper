@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Core\Cookies;
 
-use Core\Interfaces\Cookie;
-use Core\Interfaces\CookieConfig;
+use Core\Interfaces\CookieInterface;
+use Core\Interfaces\CookieConfigInterface;
 use \Exception;
 
-class CookiesArray implements Cookie
+class CookiesArray implements CookieInterface
 {
 
     use CookieConfigTrait;
@@ -16,7 +16,7 @@ class CookiesArray implements Cookie
 
     private array $session = [];
 
-    public function __construct(CookieConfig $cookieConfig)
+    public function __construct(CookieConfigInterface $cookieConfig)
     {
         $this->loadConfig($cookieConfig);
     }

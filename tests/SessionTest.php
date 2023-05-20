@@ -1,6 +1,6 @@
 <?php
 
-use Core\Interfaces\Session;
+use Core\Interfaces\SessionInterface;
 use Psr\SimpleCache\CacheInterface;
 use Core\Cache\SCFactoryGeneric;
 
@@ -52,7 +52,7 @@ class SessionTest extends PHPUnit\Framework\TestCase
        $this->cache->clear();
     }
     
-    public function defaultSessionTest(Session $session)
+    public function defaultSessionTest(SessionInterface $session)
     {
         
         $this->assertFalse($session->isStarted());

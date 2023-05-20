@@ -1,10 +1,10 @@
 <?php
 
-use Core\Interfaces\Cookie;
+use Core\Interfaces\CookieInterface;
 use Core\Cookies\CookiesArray;
 use Core\Cookies\CookiesCache;
 use Core\Cookies\CookiesNative;
-use Core\Interfaces\CookieConfig;
+use Core\Interfaces\CookieConfigInterface;
 use Core\Cookies\CookieConfigDefault;
 use Core\Cache\SCFactoryGeneric;
 use Psr\SimpleCache\CacheInterface;
@@ -15,7 +15,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 class CookiesTest extends PHPUnit\Framework\TestCase
 {
 
-    private CookieConfig $cookieParams;
+    private CookieConfigInterface $cookieParams;
     private string $cacheDir;
     private CacheInterface $cache;
 
@@ -104,7 +104,7 @@ class CookiesTest extends PHPUnit\Framework\TestCase
         $this->getCookiesTest($cookies);
     }
 
-    public function getCookiesTest(Cookie $cookies)
+    public function getCookiesTest(CookieInterface $cookies)
     {
         $this->assertFalse($cookies->has('testcookie'));
         $cookies->set('testcookie', 'NewCookieValue');

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Core\Interfaces;
 
-interface Cookie extends CookieConfig
+interface CookieInterface extends CookieConfigInterface
 {
 
     /**
@@ -77,7 +77,7 @@ interface Cookie extends CookieConfig
 
     /**
      * Load cookie config
-     * @param CookieConfig $cookieConfig
+     * @param CookieConfigInterface $cookieConfig
      */
-    public function loadConfig(CookieConfig $cookieConfig): void;
+    public function loadConfig(CookieConfigInterface $cookieConfig): void;
 }

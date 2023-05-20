@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Core\Cookies;
 
-use Core\Interfaces\Cookie;
-use Core\Interfaces\CookieConfig;
+use Core\Interfaces\CookieInterface;
+use Core\Interfaces\CookieConfigInterface;
 use \Exception;
 
-class CookiesNative implements Cookie
+class CookiesNative implements CookieInterface
 {
 
     use CookieConfigTrait;
     use CookieTrait;
 
-    public function __construct(CookieConfig $cookieConfig)
+    public function __construct(CookieConfigInterface $cookieConfig)
     {
         $this->loadConfig($cookieConfig);
     }

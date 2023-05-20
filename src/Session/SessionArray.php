@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Core\Session;
 
-use Core\Interfaces\Session;
+use Core\Interfaces\SessionInterface;
 use function array_key_exists;
 
-class SessionArray implements Session
+class SessionArray implements SessionInterface
 {
 
     private bool $started = false;

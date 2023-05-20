@@ -4,49 +4,49 @@ declare(strict_types=1);
 
 namespace Core\Cookies;
 
-use Core\Interfaces\Cookie;
-use Core\Interfaces\CookieConfig;
+use Core\Interfaces\CookieInterface;
+use Core\Interfaces\CookieConfigInterface;
 
 trait CookieTrait
 {
 
-    public function setDomain(string $domain): Cookie
+    public function setDomain(string $domain): CookieInterface
     {
         $this->domain = $domain;
         return $this;
     }
 
-    public function setHttpOnly(bool $httpOnly): Cookie
+    public function setHttpOnly(bool $httpOnly): CookieInterface
     {
         $this->httpOnly = $httpOnly;
         return $this;
     }
 
-    public function setPath(string $path): Cookie
+    public function setPath(string $path): CookieInterface
     {
         $this->path = $path;
         return $this;
     }
 
-    public function setSecue(bool $secure): Cookie
+    public function setSecue(bool $secure): CookieInterface
     {
         $this->isSecure = $secure;
         return $this;
     }
 
-    public function setTime(int $time): Cookie
+    public function setTime(int $time): CookieInterface
     {
         $this->time = $time;
         return $this;
     }
 
-    public function setSameSite(string $sameSite): Cookie
+    public function setSameSite(string $sameSite): CookieInterface
     {
         $this->sameSite = $sameSite;
         return $this;
     }
 
-    public function loadConfig(CookieConfig $cookieConfig): void
+    public function loadConfig(CookieConfigInterface $cookieConfig): void
     {
         $this->domain = $cookieConfig->getDomain();
         $this->httpOnly = $cookieConfig->getHttpOnly();
